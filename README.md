@@ -7,4 +7,8 @@
 - Vite
 - Cloudfront -> DNS + Hosting
 
-*Using virtual environment for dependencies
+## run server
+  1: cd portfolio                           │
+│    2: npm run dev -- --open                  │
+│                                              │
+│  To close the dev server, hit Ctrl-C      
