@@ -51,7 +51,7 @@
       blob: 'bg-orange-200/60',
       ring: 'focus-visible:ring-amber-300/70',
       x: 0, y: 30,
-      delay: '2.8s',
+      delay: '3.5s',
       description: "The tougher the odds, the more focused I become. I've always been driven to prove limits wrong.", 
     }
   ];

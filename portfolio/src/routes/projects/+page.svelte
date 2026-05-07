@@ -10,6 +10,15 @@
         'Investigating how humans choose words during speech by analyzing brain activity with novel machine learning techniques.'
     },
     {
+      title: 'Hackathon GenAI x Law - MVP Bonus Prize',
+      date: '2024',
+      type: 'Competition',
+      typeColor: { bg: 'bg-purple-400/15', text: 'text-purple-700' },
+      orb: 'bg-purple-400',
+      description:
+        'Built a 48-hour hackathon project at HackTrinity in a team of four: a court hearing summarizer with outcome prediction using NLP and classification, awarded MVP bonus prize.'
+    },
+    {
       title: 'Computer Vision Project',
       date: '2024',
       type: 'System',
