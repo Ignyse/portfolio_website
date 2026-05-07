@@ -32,7 +32,8 @@
 
   </div>
 </header>
-<main class="pt-20">
+<!-- pt - 10 if was 20 there was white space on top / padding top  -->
+<main class="pt-10">
 {@render children()}
 </main>
 

@@ -1,2 +1,9 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/typography';
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
