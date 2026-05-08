@@ -5,10 +5,16 @@
 - Svelte + SvelteKit 
 - TailWind CSS 
 - Vite
-- Cloudfront -> DNS + Hosting
+- Cloudflare -> DNS + Hosting
 
 ## run server
   1: cd portfolio                           │
 │    2: npm run dev -- --open                  │
 │                                              │
 │  To close the dev server, hit Ctrl-C      
+
+## using adapted static for deployment
+(if issue conda deactivate, then nvm use 22)
+npm i -D @sveltejs/adapter-static
+
+added layout.js to prerender
