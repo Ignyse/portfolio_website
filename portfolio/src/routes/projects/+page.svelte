@@ -10,6 +10,15 @@
         'Investigating how humans choose words during speech by analyzing brain activity with novel machine learning techniques.'
     },
     {
+      title: 'Multi-Page Web Scraper and PDF Generator',
+      date: '2026',
+      type: 'Software Project',
+      typeColor: { bg: 'bg-orange-400/15', text: 'text-orange-700' },
+      orb: 'bg-orange-400',
+      description:
+        'Built a Python tool that scrapes and extracts readable text from a given URL, designed for sequential content such as articles or book chapters. The system can follow multiple linked pages based on user input, aggregating and cleaning content by removing unwanted HTML elements and special characters. The extracted text is then formatted into a styled PDF with customizable output options. Implemented request-handling techniques to ensure stable and reliable data extraction while reducing the risk of bot detection.'
+    },
+    {
       title: 'Hackathon GenAI x Law - MVP Bonus Prize',
       date: '2024',
       type: 'Competition',
