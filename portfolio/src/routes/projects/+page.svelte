@@ -37,13 +37,22 @@
         'Ethical Explorations of Algorithmic Equity in Artificial Intelligence'
     },
     {
-      title: 'Project AirWatcher',
+      title: 'Air Quality Monitoring and Trend Analysis System',
       date: '2024',
       type: 'Software / System',
       typeColor: { bg: 'bg-orange-400/15', text: 'text-orange-700' },
       orb: 'bg-orange-400',
       description:
         'Developed a C++ application structured using the Model-View-Controller (MVC) design pattern. Built collaboratively in a team of three, the project focused on designing algorithms to efficiently retrieve and process data from monitoring systems tracking both private and public air pollution sources. The application was used to analyze environmental data and identify pollution trends over time.'
+    },
+    {
+      title: 'Digital Student–Teacher Interaction System',
+      date: '2024',
+      type: 'Software / System',
+      typeColor: { bg: 'bg-orange-400/15', text: 'text-orange-700' },
+      orb: 'bg-orange-400',
+      description:
+        'Developed a full-stack Java application using Spring Boot as part of a three-person team. The system supported two user roles: students and teachers. Students could view their grades across subjects and request video calls with teachers based on availability. Teachers had access to a scheduling calendar, upcoming sessions, and performance analytics related to student grades.'
     },
     // ... rest of your projects
   ];
