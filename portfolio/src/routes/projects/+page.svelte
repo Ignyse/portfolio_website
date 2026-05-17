@@ -103,19 +103,10 @@
             </h2>
 
             <!-- Description -->
-            <p class="relative line-clamp-3 flex-1 text-[13px] leading-relaxed text-gray-500">
+            <p class="relative flex-1 text-[13px] leading-relaxed text-gray-500">
               {project.description}
             </p>
 
-            <!-- Footer arrow -->
-            <div class="relative mt-6 flex justify-end">
-              <span
-                aria-hidden="true"
-                class="flex h-7 w-7 items-center justify-center rounded-full border border-black/[0.07] bg-black/[0.04] text-sm text-black/30 transition-all duration-200 group-hover:bg-black/[0.08] group-hover:text-black/60 group-hover:translate-x-0.5"
-              >
-                →
-              </span>
-            </div>
           </a>
         </li>
       {/each}
