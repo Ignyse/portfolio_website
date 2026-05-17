@@ -32,7 +32,7 @@
       typeColor: { bg: 'bg-blue-400/15', text: 'text-blue-700' },
       orb: 'bg-blue-400',
       description:
-        'Investigating how humans choose words during speech by analyzing brain activity with novel machine learning techniques.'
+        'Investigated how humans select words during speech by analyzing brain activity using novel machine learning techniques on real EEG datasets.  Conducted at <a href="https://diliberg.net/" target="_blank" rel="noopener noreferrer" class="underline hover:text-gray-700">DiLibERG Lab</a>, the project sits at the intersection of Neuroscience, Computer Science, Cognitive Science, and Psychology, applying computational methods to better understand language and cognition.'
     },
     {
       title: 'Multi-Page Web Scraper and PDF Generator',
@@ -59,7 +59,7 @@
       type: 'Competition',
       typeColor: { bg: 'bg-purple-400/15', text: 'text-purple-700' },
       orb: 'bg-purple-400',
-      image: 'images/hacktrinity.JPG',
+      image: 'images/hacktrinity.JPGA',
       description:
         'Built a 48-hour hackathon project at HackTrinity in a team of four: a court hearing summarizer with outcome prediction using NLP and classification, awarded MVP bonus prize.'
     },
@@ -212,8 +212,8 @@
             </h2>
 
             <!-- Description -->
-            <p class="relative flex-1 text-[13px] leading-relaxed text-gray-500 {expanded[project.title] ? '' : 'line-clamp-3'}">
-              {project.description}
+            <p class="relative flex-1 text-[13px] leading-relaxed text-justify text-gray-500 {expanded[project.title] ? '' : 'line-clamp-3'}">
+              {@html project.description}
             </p>
 
               <!-- Expand hint -->
