@@ -16,7 +16,7 @@
       ring: 'focus-visible:ring-cyan-300/70',
       x: 24, y: -15,
       delay: '0.7s',
-      description: 'I started swimming later than most, but by 10 I had completed a 1 km lake marathon, and by 12 I had won my first solo sailing competition.',
+      description: 'I started swimming at 6, but by 10 I had completed a 1 km lake marathon, and by 12 I had won my first solo sailing competition.',
     },
     {
       label: 'Languages',
