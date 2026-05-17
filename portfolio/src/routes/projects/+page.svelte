@@ -1,11 +1,29 @@
 <script>
   let expanded = $state({});
-
+  let imageOpen = $state({});
+  let modalImage =  $state();
   function toggle(title, e) {
     e.preventDefault(); // prevent navigation on expand
     expanded[title] = !expanded[title];
     expanded = expanded; // trigger reactivity
   }
+
+    function toggleImage(title, e) {
+    e.preventDefault();
+    e.stopPropagation();
+    imageOpen[title] = !imageOpen[title];
+  }
+
+    function openModal(src, e) {
+    e.preventDefault();
+    e.stopPropagation();
+    modalImage = src;
+  }
+
+    function closeModal() {
+    modalImage = null;
+  }
+
   const projects = [
     {
       title: 'Master Thesis',
@@ -24,6 +42,16 @@
       orb: 'bg-orange-400',
       description:
         'Built a Python tool that scrapes and extracts readable text from a given URL, designed for sequential content such as articles or book chapters. The system can follow multiple linked pages based on user input, aggregating and cleaning content by removing unwanted HTML elements and special characters. The extracted text is then formatted into a styled PDF with customizable output options. Implemented request-handling techniques to ensure stable and reliable data extraction while reducing the risk of bot detection.'
+    },
+    {
+      title: 'Data Visualization',
+      date: '2025',
+      type: 'Visualization Project',
+      typeColor: { bg: 'bg-orange-400/15', text: 'text-orange-700' },
+      orb: 'bg-orange-400',
+      image: "/images/dataviz.jpg",
+      description:
+        'Built an interactive data visualizaiton analyzing and comparing the big three tennis players in the past ( federer, nadal, djoko) with the upcoming new one Sinner and Alcaraz to perceive trend compare differnet starat of career certain affinties etc'
     },
     {
       title: 'Hackathon GenAI x Law - MVP Bonus Prize',
@@ -91,6 +119,22 @@
         Projects
       </h1>
     </header>
+    
+    {#if modalImage}
+  <div
+    class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm"
+    onclick={closeModal}
+    role="dialog"
+    aria-modal="true"
+  >
+    <img
+      src={modalImage}
+      alt="Project preview"
+      class="max-h-[80vh] max-w-[90vw] rounded-2xl shadow-2xl"
+      onclick={(e) => e.stopPropagation()}
+    />
+  </div>
+{/if}
 
     <!-- Card grid -->
     <ul class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3" role="list">
@@ -122,6 +166,42 @@
                 {project.type}
               </span>
             </div>
+             <!-- Image toggle icon — only if project has an image -->
+          {#if project.image}
+            <button
+              onclick={(e) => toggleImage(project.title, e)}
+              class="ml-auto flex h-6 w-6 items-center justify-center rounded-full border border-black/[0.08] bg-black/[0.04] text-black/30 transition-all duration-200 hover:bg-black/[0.09] hover:text-black/60"
+              aria-label="Toggle project preview"
+            >
+              <!-- Eye icon -->
+              {#if imageOpen[project.title]}
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/>
+                  <path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/>
+                  <line x1="1" y1="1" x2="23" y2="23"/>
+                </svg>
+              {:else}
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+              {/if}
+            </button>
+          {/if}
+
+        <!-- Optional image preview -->
+        {#if project.image}
+          <div
+            class="relative mb-3 overflow-hidden rounded-2xl transition-all duration-500 ease-in-out {imageOpen[project.title] ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0'}"
+          >
+            <img
+              src={project.image}
+              alt="{project.title} preview"
+              onclick={(e) => openModal(project.image, e)}
+              class="h-48 w-full object-cover"
+            />
+          </div>
+        {/if}
 
             <!-- Title -->
             <h2 class="relative mb-2 text-base font-semibold leading-snug text-gray-800 sm:text-[15px]">
