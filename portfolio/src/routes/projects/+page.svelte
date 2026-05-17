@@ -1,4 +1,11 @@
 <script>
+  let expanded = $state({});
+
+  function toggle(title, e) {
+    e.preventDefault(); // prevent navigation on expand
+    expanded[title] = !expanded[title];
+    expanded = expanded; // trigger reactivity
+  }
   const projects = [
     {
       title: 'Master Thesis',
@@ -92,6 +99,7 @@
           <a
             href={project.href}
             class="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-white/80 bg-white/55 p-6 shadow-md shadow-black/5 backdrop-blur-xl transition-all duration-300 ease-out hover:-translate-y-1.5 hover:bg-white/75 hover:shadow-xl hover:shadow-black/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400/60 focus-visible:ring-offset-2"
+            onclick={(e) => toggle(project.title, e)}
           >
             <!-- Decorative orb -->
             <div
@@ -121,10 +129,14 @@
             </h2>
 
             <!-- Description -->
-            <p class="relative flex-1 text-[13px] leading-relaxed text-gray-500">
+            <p class="relative flex-1 text-[13px] leading-relaxed text-gray-500 {expanded[project.title] ? '' : 'line-clamp-3'}">
               {project.description}
             </p>
 
+              <!-- Expand hint -->
+        {#if !expanded[project.title]}
+          <span class="relative mt-2 text-[11px] text-black/30 select-none">tap to read more</span>
+        {/if}
           </a>
         </li>
       {/each}
