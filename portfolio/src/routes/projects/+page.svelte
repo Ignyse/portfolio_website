@@ -32,7 +32,7 @@
       typeColor: { bg: 'bg-blue-400/15', text: 'text-blue-700' },
       orb: 'bg-blue-400',
       description:
-        'Investigated how humans select words during speech by analyzing brain activity using novel machine learning techniques on real EEG datasets.  Conducted at <a href="https://diliberg.net/" target="_blank" rel="noopener noreferrer" class="underline hover:text-gray-700">DiLibERG Lab</a>, the project sits at the intersection of Neuroscience, Computer Science, Cognitive Science, and Psychology, applying computational methods to better understand language and cognition.'
+        'Investigated how humans select words during speech by analyzing brain activity using novel machine learning techniques on real neural datasets using Python and MATLAB.  Conducted at <a href="https://diliberg.net/" target="_blank" rel="noopener noreferrer" class="underline hover:text-gray-700">DiLibERG Lab</a>, the project sits at the intersection of Neuroscience, Computer Science, Cognitive Science, and Psychology, applying computational methods to better understand language and cognition.'
     },
     {
       title: 'Multi-Page Web Scraper and PDF Generator',
@@ -59,9 +59,9 @@
       type: 'Competition',
       typeColor: { bg: 'bg-purple-400/15', text: 'text-purple-700' },
       orb: 'bg-purple-400',
-      image: 'images/hacktrinity.JPGA',
+      image: 'images/hacktrinity.jpg',
       description:
-        'Built a 48-hour hackathon project at HackTrinity in a team of four: a court hearing summarizer with outcome prediction using NLP and classification, awarded MVP bonus prize.'
+        'Built a 48-hour hackathon project at HackTrinity in a team of four: a court hearing summarizer with outcome prediction using NLP and classification, awarded MVP bonus prize. Developed using React and Python with integration of the Perplexity API for intelligent data processing and summarization.'
     },
     {
       title: 'Computer Vision Project',
@@ -71,7 +71,7 @@
       orb: 'bg-orange-400',
       image: 'images/crossings.png',
       description:
-        'Built a system that analyzes images to detect pedestrian crossings and visually indicate their position.'
+        'Built a system in C++ that analyzes images to detect pedestrian crossings and visually identify their locations. The model was evaluated against ground truth datasets using precision and recall metrics to measure detection accuracy and assess false positives. The system achieved strong performance on standard and distance-perspective crossing scenarios.'
     },
     {
       title: 'Paper about AI Ethics',
@@ -81,7 +81,7 @@
       orb: 'bg-blue-400',
       image: 'images/ethicspaper.png',
       description:
-        'Ethical Explorations of Algorithmic Equity in Artificial Intelligence'
+        'Explored ethical considerations of algorithmic fairness in artificial intelligence by investigating different types of bias and their impact on model outcomes. Used a real-world inspired dataset to train a predictive model estimating the likelihood of student dropout based on multiple socio-academic factors. Analyzed how bias in data and model design can influence predictions and lead to inequitable outcomes.'
     },
     {
       title: 'Air Quality Monitoring and Trend Analysis System',
