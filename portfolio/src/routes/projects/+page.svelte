@@ -44,14 +44,14 @@
         'Built a Python tool that scrapes and extracts readable text from a given URL, designed for sequential content such as articles or book chapters. The system can follow multiple linked pages based on user input, aggregating and cleaning content by removing unwanted HTML elements and special characters. The extracted text is then formatted into a styled PDF with customizable output options. Implemented request-handling techniques to ensure stable and reliable data extraction while reducing the risk of bot detection.'
     },
     {
-      title: 'Data Visualization',
+      title: 'Big Three vs Next Generation: Tennis Data Visualization',
       date: '2025',
       type: 'Visualization Project',
       typeColor: { bg: 'bg-orange-400/15', text: 'text-orange-700' },
       orb: 'bg-orange-400',
       image: "/images/dataviz.jpg",
       description:
-        'Built an interactive data visualizaiton analyzing and comparing the big three tennis players in the past ( federer, nadal, djoko) with the upcoming new one Sinner and Alcaraz to perceive trend compare differnet starat of career certain affinties etc'
+        'Developed an interactive Python data visualization project analyzing and comparing the careers of the “Big Three” — Roger Federer, Rafael Nadal, and Novak Djokovic — with emerging players Jannik Sinner and Carlos Alcaraz. Used multiple visualization techniques, including timeline comparisons and statistical graphs, to identify career trends, compare early-career progression, and analyze player strengths and performance patterns.'
     },
     {
       title: 'Hackathon GenAI x Law - MVP Bonus Prize',
@@ -59,6 +59,7 @@
       type: 'Competition',
       typeColor: { bg: 'bg-purple-400/15', text: 'text-purple-700' },
       orb: 'bg-purple-400',
+      image: 'images/hacktrinity.JPG',
       description:
         'Built a 48-hour hackathon project at HackTrinity in a team of four: a court hearing summarizer with outcome prediction using NLP and classification, awarded MVP bonus prize.'
     },
@@ -68,6 +69,7 @@
       type: 'System',
       typeColor: { bg: 'bg-orange-400/15', text: 'text-orange-700' },
       orb: 'bg-orange-400',
+      image: 'images/crossings.png',
       description:
         'Built a system that analyzes images to detect pedestrian crossings and visually indicate their position.'
     },
@@ -77,6 +79,7 @@
       type: 'Research',
       typeColor: { bg: 'bg-blue-400/15', text: 'text-blue-700' },
       orb: 'bg-blue-400',
+      image: 'images/ethicspaper.png',
       description:
         'Ethical Explorations of Algorithmic Equity in Artificial Intelligence'
     },
