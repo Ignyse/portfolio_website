@@ -25,7 +25,7 @@
                 Get in touch
             </p>
             <h1 class="text-5xl sm:text-6xl font-semibold tracking-tight text-gray-800">
-                Let’s turn ideas into things — small experiments or real products.
+                What arrives by chance becomes opportunity for the one who is open.
             </h1>
         </header>
 
