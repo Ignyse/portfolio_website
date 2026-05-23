@@ -2,48 +2,48 @@
   const interests = [
     {
       label: 'Composing Music',
-      color: '#b49d9d',        // near-black charcoal
-      accent: '#4a4a4a',
+      color: '#7A6060',   // dusty rose-mauve
+      accent: '#6a5050',
       x: -22, y: -17,
       delay: '0s',
       description: 'Classically trained in violin, I enjoy creating my own melodies and turning ideas into music.',
     },
     {
       label: 'Water Sports',
-      color: '#49677C',        // deep ocean slate
-      accent: '#3f5a6e',
+      color: '#4E6878',   // slate blue
+      accent: '#3e5868',
       x: 24, y: -15,
       delay: '0.7s',
       description: 'I started swimming at 6, but by 10 I had completed a 1 km lake marathon, and by 12 I had won my first solo sailing competition.',
     },
     {
       label: 'Languages',
-      color: '#8a664a',        // warm espresso brown
-      accent: '#6b5040',
+      color: '#7A6245',   // warm amber-brown
+      accent: '#6a5235',
       x: -26, y: 20,
       delay: '1.4s',
       description: "I learned French at six, and I'm currently challenging myself to learn 한국어.",
     },
     {
       label: 'Coding',
-      color: '#2F5C4A',        // dark forest green
-      accent: '#2d5443',
+      color: '#3D6655',   // muted forest teal
+      accent: '#2d5645',
       x: 25, y: 22,
       delay: '2.1s',
       description: 'I chose Computer Science to turn logic and creativity into tools that could help people and spark imagination.',
     },
     {
       label: 'Photography',
-      color: '#7F1734',        // dark warm sepia
-      accent: '#574840',
+      color: '#7A4E5A',   // muted burgundy-rose
+      accent: '#6a3e4a',
       x: 0, y: -30,
       delay: '2.8s',
       description: "I'm drawn to nature and animal photography for the detail, calm, and stories found in small moments.",
     },
     {
       label: 'Motivation',
-      color: '#53496D',        // deep aubergine
-      accent: '#463d58',
+      color: '#5C5278',   // soft aubergine
+      accent: '#4c4268',
       x: 0, y: 30,
       delay: '3.5s',
       description: "The tougher the odds, the more focused I become. I've always been driven to prove limits wrong.",
