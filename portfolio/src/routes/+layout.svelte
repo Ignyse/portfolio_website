@@ -52,7 +52,8 @@
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:wght@300;400;500&display=swap"
     rel="stylesheet"
   />
-  <link rel="icon" href={favicon} />
+  <!-- <link rel="icon" href={favicon} /> -->
+     <link rel="icon" type="image/png" href="/icons/icon2.png" />
 </svelte:head>
 
 <header class="site-header">
