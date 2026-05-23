@@ -2,57 +2,51 @@
   const interests = [
     {
       label: 'Composing Music',
-      glass: 'bg-blue-400/25 border-blue-200/50 hover:bg-blue-400/45',
-      blob: 'bg-blue-200/60',
-      ring: 'focus-visible:ring-blue-300/70',
+      color: '#b49d9d',        // near-black charcoal
+      accent: '#4a4a4a',
       x: -22, y: -17,
       delay: '0s',
       description: 'Classically trained in violin, I enjoy creating my own melodies and turning ideas into music.',
     },
     {
       label: 'Water Sports',
-      glass: 'bg-cyan-400/25 border-cyan-200/50 hover:bg-cyan-400/45',
-      blob: 'bg-cyan-200/60',
-      ring: 'focus-visible:ring-cyan-300/70',
+      color: '#49677C',        // deep ocean slate
+      accent: '#3f5a6e',
       x: 24, y: -15,
       delay: '0.7s',
       description: 'I started swimming at 6, but by 10 I had completed a 1 km lake marathon, and by 12 I had won my first solo sailing competition.',
     },
     {
       label: 'Languages',
-      glass: 'bg-pink-400/25 border-pink-200/50 hover:bg-pink-400/45',
-      blob: 'bg-pink-200/60',
-      ring: 'focus-visible:ring-pink-300/70',
+      color: '#8a664a',        // warm espresso brown
+      accent: '#6b5040',
       x: -26, y: 20,
       delay: '1.4s',
       description: "I learned French at six, and I'm currently challenging myself to learn 한국어.",
     },
     {
       label: 'Coding',
-      glass: 'bg-green-400/25 border-green-200/50 hover:bg-green-400/45',
-      blob: 'bg-green-200/60',
-      ring: 'focus-visible:ring-green-300/70',
+      color: '#2F5C4A',        // dark forest green
+      accent: '#2d5443',
       x: 25, y: 22,
       delay: '2.1s',
       description: 'I chose Computer Science to turn logic and creativity into tools that could help people and spark imagination.',
     },
     {
       label: 'Photography',
-      glass: 'bg-amber-400/25 border-amber-200/50 hover:bg-amber-400/45',
-      blob: 'bg-amber-200/60',
-      ring: 'focus-visible:ring-amber-300/70',
+      color: '#7F1734',        // dark warm sepia
+      accent: '#574840',
       x: 0, y: -30,
       delay: '2.8s',
       description: "I'm drawn to nature and animal photography for the detail, calm, and stories found in small moments.",
     },
     {
       label: 'Motivation',
-      glass: 'bg-orange-400/25 border-orange-200/50 hover:bg-orange-400/45',
-      blob: 'bg-orange-200/60',
-      ring: 'focus-visible:ring-amber-300/70',
+      color: '#53496D',        // deep aubergine
+      accent: '#463d58',
       x: 0, y: 30,
       delay: '3.5s',
-      description: "The tougher the odds, the more focused I become. I've always been driven to prove limits wrong.", 
+      description: "The tougher the odds, the more focused I become. I've always been driven to prove limits wrong.",
     }
   ];
 
@@ -63,93 +57,68 @@
   }
 </script>
 
+<svelte:head>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap"
+    rel="stylesheet"
+  />
+</svelte:head>
+
 <!--
-  overflow-clip clips paint without creating a scroll container,
-  preventing edge-bubble clipping from appearing as a scrollbar.
+  Linen background, no overflow scroll from blobs
 -->
-<div class="relative h-screen flex items-center justify-center overflow-clip bg-white">
+<div class="root">
 
-  <!-- Ambient gradient blobs — these are what the glass effect refracts -->
-  {#each interests as item (item.label)}
-    <div
-      aria-hidden="true"
-      class="blob absolute rounded-full blur-3xl pointer-events-none {item.blob}"
-      style="
-        width: 28rem; height: 28rem;
-        left: clamp(0%, calc(50% + {item.x}%), 100%);
-        top:  clamp(0%, calc(50% + {item.y}%), 100%);
-        transform: translate(-50%, -50%);
-        animation: drift {4 + Math.abs(item.x % 3)}s ease-in-out infinite;
-        animation-delay: {item.delay};
-      "
-    ></div>
-  {/each}
+  <!-- Very subtle grain overlay for matte texture -->
+  <div class="grain" aria-hidden="true"></div>
 
-  <!-- Subtle centre glow so the hero text pops -->
-  <div
-    aria-hidden="true"
-    class="absolute w-64 h-64 rounded-full bg-white/80 blur-2xl pointer-events-none"
-    style="top: 50%; left: 50%; transform: translate(-50%, -50%);"
-  ></div>
+  <!-- Soft ambient wash — barely visible, keeps it warm not sterile -->
+  <div class="ambient-top"    aria-hidden="true"></div>
+  <div class="ambient-bottom" aria-hidden="true"></div>
 
-  <!-- Click-outside dismissal — real <button>, no a11y warnings -->
+  <!-- Click-outside dismissal -->
   {#if selected}
     <button
       type="button"
       aria-label="Dismiss tooltip"
-      class="absolute inset-0 z-10 cursor-default bg-transparent"
+      class="dismiss-overlay"
       onclick={() => (selected = null)}
     ></button>
   {/if}
 
-  <!-- Hero text -->
-  <div class="z-20 text-center px-4 pointer-events-none select-none">
-    <h1 class="text-4xl sm:text-6xl font-semibold text-gray-800 tracking-tight mb-2">
-      Ignacy Sus
-    </h1>
-    <p class="text-gray-400 text-base sm:text-lg tracking-wide">
-      Creative Technologist
-    </p>
+  <!-- Hero -->
+  <div class="hero">
+    <h1 class="name">Ignacy Sus</h1>
+    <p class="tagline">Builder. Not just a programmer.</p>
+    <div class="rule"></div>
   </div>
 
   <!-- Bubbles -->
   {#each interests as item (item.label)}
     <div
-      class="absolute z-20"
+      class="bubble-anchor"
       style="
-        left: clamp(14%, calc(50% + {item.x}%), 86%);
-        top:  clamp(13%, calc(50% + {item.y}%), 87%);
-        transform: translate(-50%, -50%);
+        left: clamp(12%, calc(50% + {item.x}vw), 88%);
+        top:  clamp(11%, calc(50% + {item.y}vh), 89%);
       "
     >
-      <!-- Float wrapper — owns ONLY translateY; isolated from button's scale -->
-      <div class="floating" style="animation-delay: {item.delay};">
+      <div class="float-wrap" style="animation-delay: {item.delay};">
 
         <!-- Tooltip -->
         {#if selected?.label === item.label}
           <div
             role="tooltip"
             id="tip-{item.label.replace(/\s+/g, '-')}"
-            class="
-              absolute bottom-full mb-3 left-1/2 -translate-x-1/2
-              bg-white/75 backdrop-blur-md
-              border border-white/60
-              text-gray-600 text-xs sm:text-sm rounded-2xl
-              px-4 py-2.5 w-max max-w-[190px] text-center
-              shadow-xl pointer-events-none
-            "
+            class="tooltip"
           >
             {item.description}
-            <!-- Caret -->
-            <span
-              aria-hidden="true"
-              class="absolute top-full left-1/2 -translate-x-1/2
-                     border-[5px] border-transparent border-t-white/75"
-            ></span>
+            <span aria-hidden="true" class="caret"></span>
           </div>
         {/if}
 
-        <!-- The bubble -->
+        <!-- The pill -->
         <button
           type="button"
           aria-pressed={selected?.label === item.label}
@@ -157,30 +126,14 @@
             ? `tip-${item.label.replace(/\s+/g, '-')}`
             : undefined}
           onclick={(e) => { e.stopPropagation(); toggle(item); }}
-          class="
-            {item.glass} {item.ring}
-            {selected?.label === item.label
-              ? 'scale-110 shadow-2xl border-white/70 bg-opacity-50'
-              : 'shadow-lg'}
-            backdrop-blur-md border
-            text-white font-medium tracking-wide
-            flex items-center justify-center gap-1
-            rounded-full whitespace-nowrap cursor-pointer
-            px-4 sm:px-6
-            h-9 sm:h-14
-            text-[11px] sm:text-sm md:text-base
-            max-w-[130px] sm:max-w-[230px]
-            ring-1 ring-inset ring-white/30
-            transition-all duration-300 ease-out
-            hover:scale-110 hover:shadow-2xl hover:border-white/70
-            focus-visible:outline-none focus-visible:ring-2
-            focus-visible:ring-offset-2 focus-visible:ring-offset-transparent
-            active:scale-95
+          class="pill"
+          class:pill--active={selected?.label === item.label}
+          style="
+            --pill-bg: {item.color};
+            --pill-hover: {item.accent};
           "
         >
-          <span class="truncate" style="text-shadow: 0 1px 3px rgba(0,0,0,0.2);">
-            {item.label}
-          </span>
+          {item.label}
         </button>
 
       </div>
@@ -189,19 +142,223 @@
 </div>
 
 <style>
-  /* Float — lives on its own element, never conflicts with button's scale */
-  .floating {
-    animation: float 4s ease-in-out infinite;
+  /* ── Tokens ───────────────────────────────────────────── */
+  :global(body) {
+    margin: 0;
+    padding: 0;
+    background: #F5F0E8;
   }
 
+  /* ── Root ─────────────────────────────────────────────── */
+  .root {
+    font-family: 'DM Sans', sans-serif;
+    position: relative;
+    height: 100svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: #F5F0E8;
+  }
+
+  /* ── Grain texture ────────────────────────────────────── */
+  .grain {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.045;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 180px 180px;
+  }
+
+  /* ── Ambient washes ───────────────────────────────────── */
+  .ambient-top {
+    position: absolute;
+    top: -10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70vw;
+    height: 50vh;
+    border-radius: 50%;
+    background: radial-gradient(ellipse, rgba(180,160,130,0.18) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .ambient-bottom {
+    position: absolute;
+    bottom: -10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50vw;
+    height: 40vh;
+    border-radius: 50%;
+    background: radial-gradient(ellipse, rgba(120,100,80,0.10) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ── Dismiss overlay ──────────────────────────────────── */
+  .dismiss-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    cursor: default;
+    background: transparent;
+    border: none;
+  }
+
+  /* ── Hero ─────────────────────────────────────────────── */
+  .hero {
+    position: relative;
+    z-index: 20;
+    text-align: center;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .name {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 300;
+    font-size: clamp(2.8rem, 7vw, 5.5rem);
+    letter-spacing: -0.01em;
+    color: #1A1714;
+    margin: 0 0 0.25rem;
+    line-height: 1;
+  }
+
+  .tagline {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    font-size: clamp(0.75rem, 1.4vw, 1rem);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #9A8F83;
+    margin: 0 0 1.4rem;
+  }
+
+  /* Thin decorative rule below tagline */
+  .rule {
+    width: 2.5rem;
+    height: 1px;
+    background: #C8BFB4;
+    margin: 0 auto;
+  }
+
+  /* ── Bubble anchor ────────────────────────────────────── */
+  .bubble-anchor {
+    position: absolute;
+    z-index: 20;
+    transform: translate(-50%, -50%);
+  }
+
+  /* ── Float animation wrapper ──────────────────────────── */
+  .float-wrap {
+    animation: float 5s ease-in-out infinite;
+  }
+
+  /* ── Tooltip ──────────────────────────────────────────── */
+  .tooltip {
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: #FDFAF6;
+    border: 1px solid #DDD6CC;
+    border-radius: 10px;
+    padding: 0.65rem 0.9rem;
+    width: max-content;
+    max-width: 200px;
+    text-align: center;
+    font-size: 0.75rem;
+    line-height: 1.55;
+    color: #4A443D;
+    font-weight: 300;
+    letter-spacing: 0.01em;
+    box-shadow: 0 4px 20px rgba(30,20,10,0.09), 0 1px 4px rgba(30,20,10,0.06);
+    pointer-events: none;
+    animation: fade-in 0.18s ease-out;
+  }
+
+  .caret {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: #DDD6CC;
+  }
+  /* inner caret covers border line */
+  .caret::after {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: -4px;
+    border: 4px solid transparent;
+    border-top-color: #FDFAF6;
+  }
+
+  /* ── Pill ─────────────────────────────────────────────── */
+  .pill {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 999px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    font-size: clamp(0.8rem, 1.1vw, 2rem);
+    color: #F0EBE3;
+    background: var(--pill-bg);
+    /* Matte depth: top-light bevel + bottom shadow */
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.10),
+      inset 0 -1px 0 rgba(0,0,0,0.15),
+      0 2px 8px rgba(0,0,0,0.18),
+      0 1px 2px rgba(0,0,0,0.12);
+    /* padding is basically the width here*/
+    padding: clamp(1.4rem, 2.5vw, 2rem);
+    height: clamp(2rem, 1vh, 3rem);
+    white-space: nowrap;
+    max-width: clamp(150px, 22vw, 220px);
+    transition:
+      transform 0.25s cubic-bezier(0.34,1.56,0.64,1),
+      box-shadow 0.25s ease,
+      background 0.2s ease;
+  }
+
+  .pill:hover,
+  .pill--active {
+    background: var(--pill-hover);
+    transform: scale(1.07) translateY(-1px);
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.13),
+      inset 0 -1px 0 rgba(0,0,0,0.2),
+      0 6px 18px rgba(0,0,0,0.22),
+      0 2px 4px rgba(0,0,0,0.14);
+  }
+
+  .pill:active {
+    transform: scale(0.96);
+    transition-duration: 0.1s;
+  }
+
+  .pill:focus-visible {
+    outline: 2px solid #9A8F83;
+    outline-offset: 3px;
+  }
+
+  /* ── Animations ───────────────────────────────────────── */
   @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50%       { transform: translateY(-10px); }
+    0%, 100% { transform: translateY(0);     }
+    50%       { transform: translateY(-8px);  }
   }
 
-  /* Blobs drift very slowly — gives the background life */
-  @keyframes drift {
-    0%, 100% { transform: translate(-50%, -50%) scale(1); }
-    50%       { transform: translate(-50%, -52%) scale(1.05); }
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateX(-50%) translateY(4px); }
+    to   { opacity: 1; transform: translateX(-50%) translateY(0);   }
   }
 </style>

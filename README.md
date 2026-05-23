@@ -16,5 +16,6 @@
 ## using adapted static for deployment
 (if issue conda deactivate, then nvm use 22)
 npm i -D @sveltejs/adapter-static
+npm i -D @sveltejs/adapter-cloudflare
 
 added layout.js to prerender
