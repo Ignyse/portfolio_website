@@ -40,6 +40,17 @@
       description:
         'Investigated how humans select words during speech by analyzing brain activity using novel machine learning techniques on real neural datasets using Python and MATLAB.  Conducted at <a href="https://diliberg.net/" target="_blank" rel="noopener noreferrer" class="underline hover:text-gray-700">DiLibERG Lab</a>, the project sits at the intersection of Neuroscience, Computer Science, Cognitive Science, and Psychology, applying computational methods to better understand language and cognition.'
     },
+{
+  title: 'Quote Data Engine & Query API',
+  date: '2026',
+  type: 'Software Project',
+  typeColor: { bg: 'bg-orange-400/15', text: 'text-orange-700' },
+  orb: 'bg-orange-400',
+  description:
+    'System for retrieving, cleaning, and structuring real quotes from verified sources. Focused on filtering out low-quality or non-notable entries to keep only legitimate, sourced quotes. ' +
+    'Processes 500k+ records using Python and Pandas with a structured pipeline for validation, transformation, and deduplication. Uses Wikidata SPARQL API to verify entities and ensure source consistency. ' +
+    'Supports querying by author, tag, and category with random sampling from validated datasets. Built with modular components, unit tests, and clear separation of logic, designed to be easily extended into an API with frontend.'
+},
     {
       title: 'Multi-Page Web Scraper and PDF Generator',
       date: '2026',
