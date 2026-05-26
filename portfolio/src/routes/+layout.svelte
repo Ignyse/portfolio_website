@@ -67,7 +67,7 @@
 
     <!-- Nav -->
     <nav class="nav" aria-label="Main navigation">
-      {#each [['/', 'Home'], ['/projects', 'Projects'], ['/contact', 'Contact']] as [href, label]}
+      {#each [['/', 'Home'], ['/projects', 'Projects'],['/about','About'], ['/contact', 'Contact']] as [href, label]}
         <a
           {href}
           class="nav-link"
