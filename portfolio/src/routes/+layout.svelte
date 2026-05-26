@@ -175,7 +175,7 @@
     position: relative;
     font-family: var(--font-body);
     font-weight: 300;
-    font-size: 0.8rem;
+    font-size: clamp(0.6rem, 1vw, 0.8rem);
     letter-spacing: 0.12em;
     text-transform: uppercase;
     text-decoration: none;
