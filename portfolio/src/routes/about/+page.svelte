@@ -13,7 +13,7 @@
       badgeLabel: 'IB Score',
       body: 'Finished in the global top percentile with a near-perfect score — one of the strongest results in the World.',
       decision: {
-        prompt: 'University offers received',
+        prompt: 'University offers received (other offers declined in favour of final choice)',
         options: [
           { label: 'University of Warsaw',  chosen: false },
           { label: 'University of Warwick', chosen: false, note: 'scholarship' },
@@ -465,11 +465,8 @@
 
   /* Rejected: faded, warm strikethrough via text-decoration */
   .option--rejected {
-    background: rgba(26,23,20,0.05);
-    color: var(--ink-muted);
-    text-decoration: line-through;
-    text-decoration-color: rgba(154,143,131,0.5);
-    text-decoration-thickness: 1px;
+    background: rgba(26,23,20,0.04);
+    color: rgba(154,143,131,0.7);
   }
 
   /* Chosen: same matte dark pill as home page */
