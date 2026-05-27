@@ -1,5 +1,5 @@
 # portfolio_website
-Accessible at [ignacysus.com](ignacysus.com)
+Accessible at [ignacysus.com](www.ignacysus.com)
 
 ## Stack
 - Svelte + SvelteKit 
