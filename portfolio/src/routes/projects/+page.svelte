@@ -40,6 +40,15 @@
       description:
         'Investigated how humans select words during speech by analyzing brain activity using novel machine learning techniques on real neural datasets using Python and MATLAB.  Conducted at <a href="https://diliberg.net/" target="_blank" rel="noopener noreferrer" class="underline hover:text-gray-700">DiLibERG Lab</a>, the project sits at the intersection of Neuroscience, Computer Science, Cognitive Science, and Psychology, applying computational methods to better understand language and cognition.'
     },
+    {
+      title:'Real-Time Multiplayer Word Game — WebSocket Game Server',
+      date: '2026',
+      type: 'Software Project',
+      typeColor: { bg: 'bg-orange-400/15', text: 'text-orange-700' },
+      orb: 'bg-orange-400',
+      description:
+      "Multiplayer browser game built from scratch using Node.js WebSockets. Players join a shared session, submit sentences, and vote on each other's answers across timed rounds. Focused on clean separation between networking and game logic, with a modular architecture that keeps the WebSocket layer decoupled from state management. Handles real-time bidirectional communication using the ws library, with a persistent in-memory game state that survives across rounds without resetting. Implements a full round lifecycle — host assignment, countdown timers, sentence collection, voting phase, and winner calculation — orchestrated with async/await rather than nested callbacks. Player sessions are tracked via a socket map, enabling targeted messaging to individual clients alongside global broadcasts. Built with a clear separation of concerns: server.js owns connections and timing, game.js owns state and rules, and client.js reflect players' actions. Includes a hand-rolled test suite validating core game logic in isolation from the WebSocket layer."
+    },
 {
   title: 'Quote Data Engine & Query API',
   date: '2026',
